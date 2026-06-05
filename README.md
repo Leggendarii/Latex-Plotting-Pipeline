@@ -1,70 +1,79 @@
 TEST PLOT PIPELINE - README
 ============================
 
-DESCRIZIONE DEL PROGETTO
-------------------------
-Questo progetto automatizza il flusso di lavoro per la generazione di dati artificiali 
-e la compilazione di figure LaTeX in PDF.
+PROJECT DESCRIPTION
+-------------------
+This project automates the workflow for generating artificial data 
+and compiling LaTeX figures to PDF.
 
 
-STRUTTURA DEL PROGETTO
----------------------
-main.py              -- Script principale che compila i file .tex in PDF e pulisce i file ausiliari
-simulatuon.py        -- Script per generare dati artificiali (funzioni trigonometriche)
-data/                -- Cartella contenente i file di dati (.csv)
-figures/             -- Cartella di output con i PDF compilati
-source_tex/          -- Cartella contenente i file sorgente LaTeX (.tex)
+PROJECT STRUCTURE
+-----------------
+main.py              -- Main script that compiles .tex files to PDF and cleans auxiliary files
+simulatuon.py        -- Script for generating artificial data (trigonometric functions)
+data/                -- Folder containing data files (.csv)
+figures/             -- Output folder with compiled PDFs
+source_tex/          -- Folder containing LaTeX source files (.tex)
 
 
-COME UTILIZZARE
----------------
-
-Passo 1: Generare i Dati Artificiali
-    python simulatuon.py
-
-Questo crea un file data/data.csv contenente 100 punti con i valori di:
-  - x: array lineare da 0 a 10
-  - sin: seno di x
-  - cos: coseno di x
-
-
-Passo 2: Compilare le Figure LaTeX
-    python main.py
-
-Questo script:
-  1. Pulisce i vecchi file PDF e ausiliari
-  2. Compila tutti i file .tex della cartella source_tex/
-  3. Genera i PDF nella cartella figures/
-  4. Pulisce i file ausiliari generati durante la compilazione
-
-
-DIPENDENZE
+HOW TO USE
 ----------
 
-Python Packages:
-  - numpy (per simulatuon.py)
-  - pandas (per simulatuon.py)
-  - main.py non richiede pacchetti esterni
+Step 1: Generate Artificial Data
+    python simulatuon.py
 
-Requisiti Esterni:
-  - pdflatex (compiler LaTeX, deve essere installato nel sistema)
+This creates a data/data.csv file containing 100 points with values of:
+  - x: linear array from 0 to 10
+  - sin: sine of x
+  - cos: cosine of x
 
 
-INSTALLAZIONE DEI PACCHETTI
----------------------------
-pip install numpy pandas
+Step 2: Compile LaTeX Figures
+    python main.py
+
+This script:
+  1. Cleans old PDF and auxiliary files
+  2. Compiles all .tex files in the source_tex/ folder
+  3. Generates PDFs in the figures/ folder
+  4. Cleans auxiliary files generated during compilation
+
+
+DEPENDENCIES
+------------
+
+Python Packages (install via pip):
+  - numpy (for simulatuon.py)
+  - pandas (for simulatuon.py)
+  - main.py requires no external packages
+
+System Applications (must be installed on your PC):
+  - pdflatex (LaTeX compiler - part of MiKTeX or TeX Live distribution)
+    Like Inkscape for SVG→PDF, pdflatex is an external system application
+    that must be installed separately on your operating system.
+  - MiKTeX or TeX Live distribution for Windows/Mac/Linux
+
+
+PACKAGE INSTALLATION
+--------------------
+To install Python packages:
+    pip install numpy pandas
+
+To install pdflatex:
+  - Windows: Download and install MiKTeX (https://miktex.org)
+  - Mac: Install MacTeX or use Homebrew
+  - Linux: Use your package manager (apt, yum, etc.)
 
 
 OUTPUT
 ------
-Al termine dell'esecuzione:
-  - I dati generati si trovano in data/data.csv
-  - I PDF compilati si trovano in figures/
-  - I file ausiliari (.aux, .log) vengono automaticamente rimossi
+After execution:
+  - Generated data is located in data/data.csv
+  - Compiled PDFs are located in figures/
+  - Auxiliary files (.aux, .log) are automatically removed
 
 
-NOTE
-----
-  - I file .tex devono essere posizionati nella cartella source_tex/
-  - Lo script pulisce automaticamente i vecchi output prima di generare i nuovi
-  - Per modificare i dati generati, edita il file simulatuon.py
+NOTES
+-----
+  - .tex files must be placed in the source_tex/ folder
+  - The script automatically cleans old output before generating new files
+  - To modify generated data, edit the simulatuon.py file
