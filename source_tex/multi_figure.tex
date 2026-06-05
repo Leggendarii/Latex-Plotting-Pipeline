@@ -1,0 +1,40 @@
+\documentclass[crop,tikz]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepgfplotslibrary{groupplots} % <-- IMPORTANTE
+\pgfplotsset{compat=1.18}
+
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{groupplot}[
+    group style={group size=2 by 2, vertical sep=2cm},
+    width=10cm,
+    height=5cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=major,
+    legend pos=north west
+]
+
+\nextgroupplot[title={Cosine}]
+\addplot[red,thick] table[x=x,y=cos,col sep=comma] {../data/dati.csv};
+\addlegendentry{$\cos(x)$}
+
+\nextgroupplot[title={Sine}]
+\addplot[purple,thick] table[x=x,y=sin,col sep=comma] {../data/dato.csv};
+\addlegendentry{$\sin(x)$}
+
+\nextgroupplot[title={Cosine}]
+\addplot[green,thick] table[x=x,y=cos,col sep=comma] {../data/dati.csv};
+\addlegendentry{$\cos(x)$}
+
+\nextgroupplot[title={Sine}]
+\addplot[purple,thick] table[x=x,y=sin,col sep=comma] {../data/dato.csv};
+\addlegendentry{$\sin(x)$}
+
+\end{groupplot}
+\end{tikzpicture}
+
+\end{document}

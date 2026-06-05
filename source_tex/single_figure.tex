@@ -1,0 +1,28 @@
+\documentclass[crop,tikz]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=6cm,
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=major,
+    legend pos=north west,
+    title={Sine and Cosine}
+]
+
+\addplot[red,thick] table[x=x,y=cos,col sep=comma] {../data/dato.csv};
+\addlegendentry{$\cos(x)$}
+
+\addplot[blue,thick] table[x=x,y=sin,col sep=comma] {../data/dato.csv};
+\addlegendentry{$\sin(x)$}
+
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
